@@ -17,10 +17,6 @@ app.get('/usuario', function(req, res) {
     limite = Number(limite);
 
 
-
-
-
-
     usuarioModel.find({ estado: true }, 'nombre email role google estado')
         .skip(desde)
         .limit(limite)
