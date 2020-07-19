@@ -8,22 +8,19 @@ const app = express();
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
+app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//Importamos las rutas de usuario
 
-app.use(require('./controllers/usuarioController'));
+//Importacion global de rutas que se encuentran en index
+app.use(require('./controllers/index'));
 
 
 
 mongoose.connect(process.env.URLDB, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
-
     if (err)
         throw err;
-
 
     console.log('Base online');
 });
