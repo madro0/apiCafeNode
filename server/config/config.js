@@ -4,7 +4,7 @@
 
 const { identity } = require("underscore");
 
-process.env.PORT = process.env.PORT || 3000;
+process.env.PORT = process.env.PORT || 8887;
 
 
 //=======================================
@@ -27,6 +27,7 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 //SEED de autenticacón 
 //=======================================
 process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+
 //=======================================
 //Base de datos!
 //=======================================
@@ -40,3 +41,8 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+//=======================================
+//Google client ID!
+//=======================================
+process.env.CLIENT_ID = '861169619884-bqc58vbhfv406ck4rdf893ar8597003t.apps.googleusercontent.com';
