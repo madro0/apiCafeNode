@@ -37,7 +37,7 @@ let verificarRole = (req, res, next) => {
     if (usuario.role != 'ADMIN_ROLE') {
         return res.status(401).json({
             err: {
-                message: "No cuenta con permisos de administrador"
+                message: "Esta cuenta no posee permisos de administrador"
             }
         });
     }
