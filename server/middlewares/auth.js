@@ -30,7 +30,6 @@ let verificarToken = (req, res, next) => {
 //=============================
 //Verificar AdminRole
 //=============================
-
 let verificarRole = (req, res, next) => {
     let usuario = req.usuario;
 
@@ -45,9 +44,37 @@ let verificarRole = (req, res, next) => {
     next();
 };
 
+//=============================
+//Verifica token imagen
+//=============================
+let verificarTokenImg = (req, res, next) => {
+
+    let token = req.query.Authorization;
+
+    jwt.verify(token, process.env.SEED, (err, decode) => {
+
+        if (err) {
+            return res.status(401).json({
+                err: {
+                    message: "Autorization (token) invalido"
+                }
+            });
+        }
+
+        req.usuario = decode.usuario;
+        next();
+
+    });
+
+
+}
+
+
+
 
 
 module.exports = {
     verificarToken,
+    verificarTokenImg,
     verificarRole
 }

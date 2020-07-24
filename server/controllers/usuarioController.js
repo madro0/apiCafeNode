@@ -136,7 +136,7 @@ app.delete('/usuario/:id', [verificarToken, verificarRole], (req, res) => {
 
     usuarioModel.findByIdAndUpdate(id, { estado: false }, { new: true, runValidators: true }, (err, userUpdate) => {
         if (err) {
-            return res.status(400).json({
+            return res.status(500).json({
                 ok: false,
                 err
             });
